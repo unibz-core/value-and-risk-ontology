@@ -14,7 +14,7 @@ COVER is a well-founded ontology that makes the deep connections between the con
 * **[Giancarlo Guizzardi](http://www.inf.ufes.br/~gguizzardi)** - Free University of Bozen-Bolzano, Bolzano, Italy
 * **[João Paulo A. Almeida](https://www.researchgate.net/profile/Joao_Almeida16)** - Federal University of Espírito Santo, Brazil 
 * **[Nicola Guarino](https://www.istc.cnr.it/it/people/nicola-guarino)** - ISTC-CNR Laboratory for Applied Ontology, Italy 
-* **[John Mylopoulos]** (https://www.researchgate.net/profile/John-Mylopoulos) - University of Toronto, Canada 
+* **[John Mylopoulos](https://www.researchgate.net/profile/John-Mylopoulos)** - University of Toronto, Canada 
 
 
 ## References
