@@ -6,6 +6,15 @@ COVER is a well-founded ontology that makes the deep connections between the con
 
 * [/ontouml](/ontouml) contains files related to the conceptual version of COVER, which was modelled in OntoUML.
 
+## Reusing .vpp files
+
+* To open and edit .vpp files, use [Visual Paradigm](https://www.visual-paradigm.com)
+
+## Built With
+
+* [Visual Paradigm](https://www.visual-paradigm.com) - a UML CASE tool that offers a [free community edition version](https://www.visual-paradigm.com/download/community.jsp)
+* The [OntoUML Plugin](https://github.com/OntoUML/ontouml-vp-plugin) for Visual Paradigm
+
 
 ## Authors
 
