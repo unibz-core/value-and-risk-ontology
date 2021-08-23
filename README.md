@@ -5,6 +5,7 @@ COVER is a well-founded ontology that makes the deep connections between the con
 ## Project Structure
 
 * [/ontouml](/ontouml) contains files related to the conceptual version of COVER, which was modelled in OntoUML.
+* [/owl](/owl) contains files related to the gUFO-based implementation of COVER, represented in OWL.
 
 ## Reusing .vpp files
 
