@@ -1,0 +1,584 @@
+@prefix : <https://purl.org/krdb-core/cover#>.
+@prefix cover: <https://purl.org/krdb-core/cover#>.
+@prefix gufo: <http://purl.org/nemo/gufo#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+<thttps://purl.org/krdb-core/cover> rdf:type owl:Ontology;
+    owl:imports gufo:.
+cover:Endurant rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Endurant;
+    rdfs:label "Endurant"@en.
+cover:Substantial rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Object;
+    rdfs:label "Substantial"@en.
+cover:Moment rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Aspect;
+    rdfs:label "Moment"@en.
+cover:Trope rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Aspect;
+    rdfs:label "Trope"@en.
+cover:Quality rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Quality;
+    rdfs:label "Quality"@en.
+cover:Mode rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Aspect, [
+  rdf:type owl:Class;
+  owl:unionOf (gufo:IntrinsicMode gufo:ExtrinsicMode)
+];
+    rdfs:label "Mode"@en.
+cover:Relator rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Relator;
+    rdfs:label "Relator"@en.
+cover:Object rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Object"@en.
+cover:Agent rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Object;
+    rdfs:label "Agent"@en.
+cover:Intention rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Intention"@en.
+cover:MentalAspect rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Mental Aspect"@en.
+cover:Disposition rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Disposition"@en.
+cover:Event rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Event;
+    rdfs:label "Event"@en.
+cover:Action rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Action"@en.
+cover:Situation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Situation"@en.
+cover:EventType rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Event Type"@en.
+cover:SituationType rdf:type owl:NamedIndividual;
+    rdfs:subClassOf gufo:ConcreteIndividualType;
+    rdfs:label "Situation Type"@en.
+cover:Vulnerability rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:IntrinsicMode;
+    rdfs:label "Vulnerability"@en.
+cover:HazardousSituation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Hazardous Situation"@en.
+cover:ThreatEvent rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Threat Event"@en.
+cover:LossEvent rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Loss Event"@en.
+cover:LossSituation rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Loss Situation"@en.
+cover:RiskSubject rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Risk Subject"@en.
+cover:ThreatObject rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Threat Object"@en.
+cover:RiskExperience rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Risk Experience"@en.
+cover:RiskEvent rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Risk Event"@en.
+cover:RiskEnabler rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Risk Enabler"@en.
+cover:ObjectAtRisk rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Object at Risk"@en.
+cover:ThreatCapability rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Threat Capability"@en.
+cover:ValueObject rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Value Object"@en.
+cover:ValueEnabler rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Value Enabler"@en.
+cover:ThreatAgent rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Threat Agent"@en.
+cover:ValueAssessor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Value Assessor"@en.
+cover:ValueSubject rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:subClassOf gufo:FunctionalComplex;
+    rdfs:label "Value Subject"@en.
+cover:RiskAssessor rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Risk Assessor"@en.
+cover:ValueExperience rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Value Experience"@en.
+cover:ValueEvent rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Value Event"@en.
+cover:Valuation rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Valuation"@en.
+cover:ImpactEvent rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Impact Event"@en.
+cover:TriggerEvent rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Trigger Event"@en.
+cover:GainEvent rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Gain Event"@en.
+cover:OpportunityEvent rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Opportunity Event"@en.
+cover:RootCauseEvent rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Root Cause Event"@en.
+cover:Attack rdf:type owl:Class, gufo:EventType, owl:NamedIndividual;
+    rdfs:label "Attack"@en.
+cover:Likelihood rdf:type owl:Class, gufo:Category, owl:NamedIndividual;
+    rdfs:label "Likelihood"@en.
+cover:Value rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Value"@en.
+cover:Risk rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Risk"@en.
+cover:TriggeringLikelihood rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Triggering Likelihood"@en.
+cover:CausalLikelihood rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Causal Likelihood"@en.
+cover:Capability rdf:type owl:Class, gufo:RoleMixin, owl:NamedIndividual;
+    rdfs:label "Capability"@en.
+cover:ValueAscription rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Value Ascription"@en.
+cover:ValueAscComponent rdf:type owl:Class, gufo:Kind, owl:NamedIndividual;
+    rdfs:label "Value Asc. Component"@en.
+cover:ValueAscExAnte rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Value Asc. Ex Ante"@en.
+cover:ValueAscExPost rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Value Asc. Ex Post"@en.
+cover:ObjectValueAsc rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Object Value Asc."@en.
+cover:ExperienceValueAsc rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Experience Value Asc."@en.
+cover:ValuePerception rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Value Perception"@en.
+cover:ValueAssertion rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Value Assertion"@en.
+cover:GainAscription rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Gain Ascription"@en.
+cover:LossAscription rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Loss Ascription"@en.
+cover:RiskAssessment rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Risk Assessment"@en.
+cover:ObjectRiskAssess rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Object Risk Assess."@en.
+cover:ExperienceRiskAssess rdf:type owl:Class, gufo:SubKind, owl:NamedIndividual;
+    rdfs:label "Experience Risk Assess."@en.
+cover:ImpactfulOutcome rdf:type owl:Class, gufo:SituationType, owl:NamedIndividual;
+    rdfs:subClassOf gufo:Situation;
+    rdfs:label "Impactful Outcome"@en.
+cover:Substantial rdfs:subClassOf cover:Endurant.
+cover:Object rdfs:subClassOf cover:Substantial.
+cover:Agent rdfs:subClassOf cover:Substantial.
+cover:ValueObject rdfs:subClassOf cover:Endurant.
+cover:ValueEnabler rdfs:subClassOf cover:Endurant.
+cover:Quality rdfs:subClassOf cover:Trope.
+cover:Mode rdfs:subClassOf cover:Trope.
+cover:Likelihood rdfs:subClassOf cover:Quality.
+cover:Value rdfs:subClassOf cover:Quality.
+cover:Disposition rdfs:subClassOf cover:Mode.
+cover:MentalAspect rdfs:subClassOf cover:Mode.
+cover:ValueAscription rdfs:subClassOf cover:Relator.
+cover:ValueAscComponent rdfs:subClassOf cover:Relator.
+cover:ValueAssessor rdfs:subClassOf cover:Agent.
+cover:ValueSubject rdfs:subClassOf cover:Agent.
+cover:ThreatAgent rdfs:subClassOf cover:Agent.
+cover:Intention rdfs:subClassOf cover:MentalAspect.
+cover:Vulnerability rdfs:subClassOf cover:Disposition.
+cover:Action rdfs:subClassOf cover:Event.
+cover:ValueExperience rdfs:subClassOf cover:Event.
+cover:ValueEvent rdfs:subClassOf cover:Event.
+cover:Valuation rdfs:subClassOf cover:Action.
+cover:Attack rdfs:subClassOf cover:Action.
+cover:Capability rdfs:subClassOf cover:Disposition.
+cover:ThreatEvent rdfs:subClassOf cover:RiskEvent.
+cover:LossEvent rdfs:subClassOf cover:RiskEvent.
+cover:RiskEnabler rdfs:subClassOf cover:ValueEnabler.
+cover:ThreatObject rdfs:subClassOf cover:ValueObject.
+cover:ObjectAtRisk rdfs:subClassOf cover:ValueObject.
+cover:ThreatAgent rdfs:subClassOf cover:ThreatObject.
+cover:RiskAssessor rdfs:subClassOf cover:ValueAssessor.
+cover:RiskSubject rdfs:subClassOf cover:ValueSubject.
+cover:RiskExperience rdfs:subClassOf cover:ValueExperience.
+cover:ImpactEvent rdfs:subClassOf cover:ValueEvent.
+cover:TriggerEvent rdfs:subClassOf cover:ValueEvent.
+cover:RiskEvent rdfs:subClassOf cover:ValueEvent.
+cover:GainEvent rdfs:subClassOf cover:ImpactEvent.
+cover:LossEvent rdfs:subClassOf cover:ImpactEvent.
+cover:ThreatEvent rdfs:subClassOf cover:TriggerEvent.
+cover:OpportunityEvent rdfs:subClassOf cover:TriggerEvent.
+cover:RootCauseEvent rdfs:subClassOf cover:ThreatEvent.
+cover:Attack rdfs:subClassOf cover:ThreatEvent.
+cover:Risk rdfs:subClassOf cover:Value.
+cover:TriggeringLikelihood rdfs:subClassOf cover:Likelihood.
+cover:CausalLikelihood rdfs:subClassOf cover:Likelihood.
+cover:ThreatCapability rdfs:subClassOf cover:Capability.
+cover:ValueAscExAnte rdfs:subClassOf cover:ValueAscription.
+cover:ValueAscExPost rdfs:subClassOf cover:ValueAscription.
+cover:ObjectValueAsc rdfs:subClassOf cover:ValueAscription.
+cover:ExperienceValueAsc rdfs:subClassOf cover:ValueAscription.
+cover:ValuePerception rdfs:subClassOf cover:ValueAscription.
+cover:ValueAssertion rdfs:subClassOf cover:ValueAscription.
+cover:GainAscription rdfs:subClassOf cover:ValueAscComponent.
+cover:LossAscription rdfs:subClassOf cover:ValueAscComponent.
+cover:RiskAssessment rdfs:subClassOf cover:ValueAscExAnte.
+cover:ObjectRiskAssess rdfs:subClassOf cover:ObjectValueAsc.
+cover:ExperienceRiskAssess rdfs:subClassOf cover:ExperienceValueAsc.
+cover:ObjectRiskAssess rdfs:subClassOf cover:RiskAssessment.
+cover:ExperienceRiskAssess rdfs:subClassOf cover:RiskAssessment.
+[ rdf:type owl:AllDisjointClasses ] owl:members (cover:Object cover:Agent).
+cover:Substantial owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (cover:Object cover:Agent)
+].
+cover:ValueEvent owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (cover:TriggerEvent cover:ImpactEvent)
+].
+cover:ImpactEvent owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (cover:GainEvent cover:LossEvent)
+].
+cover:TriggerEvent owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (cover:ThreatEvent cover:OpportunityEvent)
+].
+[ rdf:type owl:AllDisjointClasses ] owl:members (cover:Mode cover:Quality).
+cover:Trope owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (cover:Mode cover:Quality)
+].
+[ rdf:type owl:AllDisjointClasses ] owl:members (cover:ExperienceValueAsc cover:ObjectValueAsc).
+cover:ValueAscription owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (cover:ExperienceValueAsc cover:ObjectValueAsc)
+].
+[ rdf:type owl:AllDisjointClasses ] owl:members (cover:LossAscription cover:GainAscription).
+cover:ValueAscComponent owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (cover:LossAscription cover:GainAscription)
+].
+[ rdf:type owl:AllDisjointClasses ] owl:members (cover:ExperienceRiskAssess cover:ObjectRiskAssess).
+cover:RiskAssessment owl:equivalentClass [
+  rdf:type owl:Class;
+  owl:unionOf (cover:ExperienceRiskAssess cover:ObjectRiskAssess)
+].
+cover:hurtByLossSituation rdf:type owl:ObjectProperty;
+    rdfs:domain cover:Intention;
+    rdfs:range cover:LossSituation;
+    rdfs:label "hurt by loss situation"@en.
+cover:hurtByLosEvent rdf:type owl:ObjectProperty;
+    rdfs:domain cover:Intention;
+    rdfs:range cover:LossEvent;
+    rdfs:label "hurt by los event"@en.
+cover:intentionHasExperienceRiskAssess rdf:type owl:ObjectProperty;
+    rdfs:domain cover:Intention;
+    rdfs:range cover:ExperienceRiskAssess.
+cover:intentionHasExperienceValueAsc rdf:type owl:ObjectProperty;
+    rdfs:domain cover:Intention;
+    rdfs:range cover:ExperienceValueAsc.
+cover:Situation gufo:categorizes cover:SituationType.
+cover:Event gufo:categorizes cover:EventType.
+cover:dispositionHasExperienceValueAsc rdf:type owl:ObjectProperty;
+    rdfs:domain cover:Disposition;
+    rdfs:range cover:ExperienceValueAsc.
+cover:isPartOfRiskExperience rdf:type owl:ObjectProperty;
+    rdfs:domain cover:RiskEvent;
+    rdfs:range cover:RiskExperience;
+    rdfs:label "is part of risk experience"@en.
+cover:experienceRiskAssessHasObjectRiskAssess rdf:type owl:ObjectProperty;
+    rdfs:domain cover:ExperienceRiskAssess;
+    rdfs:range cover:ObjectRiskAssess.
+cover:involves_1 rdf:type owl:ObjectProperty;
+    rdfs:domain cover:ExperienceRiskAssess;
+    rdfs:range cover:RiskExperience;
+    rdfs:label "involves"@en.
+cover:vulnerabilityHasExperienceRiskAssess rdf:type owl:ObjectProperty;
+    rdfs:domain cover:Vulnerability;
+    rdfs:range cover:ExperienceRiskAssess.
+cover:experienceRiskAssessHasThreatCapability rdf:type owl:ObjectProperty;
+    rdfs:domain cover:ExperienceRiskAssess;
+    rdfs:range cover:ThreatCapability.
+cover:experienceValueAscHasObjectValueAsc rdf:type owl:ObjectProperty;
+    rdfs:domain cover:ExperienceValueAsc;
+    rdfs:range cover:ObjectValueAsc.
+cover:involves_4 rdf:type owl:ObjectProperty;
+    rdfs:domain cover:ExperienceValueAsc;
+    rdfs:range cover:ValueExperience;
+    rdfs:label "involves"@en.
+cover:valueEventHasValueExperience rdf:type owl:ObjectProperty;
+    rdfs:domain cover:ValueEvent;
+    rdfs:range cover:ValueExperience.
+cover:directlyCauses rdf:type owl:ObjectProperty;
+    rdfs:domain cover:ValueEvent;
+    rdfs:range cover:ValueEvent;
+    rdfs:label "directly causes"@en.
+cover:impacts rdf:type owl:ObjectProperty;
+    rdfs:domain cover:ImpactfulOutcome;
+    rdfs:range cover:Intention;
+    rdfs:label "impacts"@en.
+cover:impacts_1 rdf:type owl:ObjectProperty;
+    rdfs:domain cover:ImpactEvent;
+    rdfs:range cover:Intention;
+    rdfs:label "impacts"@en.
+cover:RiskSubject rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:someValuesFrom cover:Intention
+].
+cover:ValueSubject rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:someValuesFrom cover:Intention
+].
+cover:Event rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:contributedToTrigger ];
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass cover:Situation
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:broughtAbout;
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass cover:Situation
+].
+cover:ValueObject rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:someValuesFrom cover:Disposition
+].
+cover:ValueEnabler rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:someValuesFrom cover:Disposition
+].
+cover:ValueEvent rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:manifestedIn ];
+  owl:someValuesFrom cover:Disposition
+].
+cover:ThreatEvent rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:contributedToTrigger ];
+  owl:someValuesFrom cover:HazardousSituation
+].
+cover:HazardousSituation rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:contributedToTrigger;
+  owl:someValuesFrom cover:ThreatEvent
+].
+cover:LossEvent rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:historicallyDependsOn ];
+  owl:someValuesFrom cover:ThreatEvent
+].
+cover:ThreatEvent rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:historicallyDependsOn;
+  owl:someValuesFrom cover:LossEvent
+].
+cover:LossSituation rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:broughtAbout ];
+  owl:someValuesFrom cover:LossEvent
+].
+cover:LossEvent rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:broughtAbout;
+  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass cover:LossSituation
+].
+cover:RiskExperience rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:participatedIn ];
+  owl:someValuesFrom cover:RiskSubject
+].
+cover:RiskSubject rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:participatedIn;
+  owl:someValuesFrom cover:RiskExperience
+].
+cover:RiskEnabler rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:participatedIn;
+  owl:someValuesFrom cover:RiskEvent
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:someValuesFrom cover:Vulnerability
+].
+cover:Vulnerability rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:manifestedIn;
+  owl:someValuesFrom cover:RiskEvent
+].
+cover:ObjectAtRisk rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:someValuesFrom cover:Vulnerability
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:participatedIn;
+  owl:someValuesFrom cover:LossEvent
+].
+cover:ThreatObject rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:participatedIn;
+  owl:someValuesFrom cover:ThreatEvent
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:someValuesFrom cover:ThreatCapability
+].
+cover:ThreatCapability rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass cover:ThreatObject
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:manifestedIn;
+  owl:someValuesFrom cover:ThreatEvent
+].
+cover:RiskAssessor rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:mediates ];
+  owl:someValuesFrom cover:RiskAssessment
+].
+cover:RiskAssessment rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass cover:RiskAssessor
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass cover:Risk
+].
+cover:Risk rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass cover:RiskAssessment
+].
+cover:ObjectAtRisk rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:mediates ];
+  owl:someValuesFrom cover:ObjectRiskAssess
+].
+cover:ObjectRiskAssess rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass cover:ObjectAtRisk
+].
+cover:ThreatObject rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:participatedIn;
+  owl:someValuesFrom cover:RiskExperience
+].
+cover:RiskEnabler rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:participatedIn;
+  owl:someValuesFrom cover:RiskExperience
+].
+cover:ObjectAtRisk rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:participatedIn;
+  owl:someValuesFrom cover:RiskExperience
+].
+cover:CausalLikelihood rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass cover:EventType
+].
+cover:TriggeringLikelihood rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass cover:SituationType
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:externallyDependsOn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass cover:EventType
+].
+cover:CausalLikelihood rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:externallyDependsOn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass cover:EventType
+].
+cover:ValueAssessor rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:mediates ];
+  owl:someValuesFrom cover:ValueAscription
+].
+cover:ValueAscription rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass cover:ValueAssessor
+], [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:inheresIn ];
+  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass cover:Value
+].
+cover:Value rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:inheresIn;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass cover:ValueAscription
+].
+cover:ValueObject rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:mediates ];
+  owl:someValuesFrom cover:ObjectValueAsc
+].
+cover:ObjectValueAsc rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:mediates;
+  owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass cover:ValueObject
+].
+cover:ValueExperience rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:participatedIn ];
+  owl:someValuesFrom cover:ValueSubject
+].
+cover:ValueSubject rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:participatedIn;
+  owl:someValuesFrom cover:ValueExperience
+].
+cover:ValueEnabler rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:participatedIn;
+  owl:someValuesFrom cover:ValueExperience
+].
+cover:ValueObject rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:participatedIn;
+  owl:someValuesFrom cover:ValueExperience
+].
+cover:ValueEnabler rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:participatedIn;
+  owl:someValuesFrom cover:ValueEvent
+].
+cover:ImpactEvent rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:historicallyDependsOn ];
+  owl:someValuesFrom cover:TriggerEvent
+].
+cover:TriggerEvent rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:historicallyDependsOn;
+  owl:someValuesFrom cover:ImpactEvent
+].
+cover:ImpactfulOutcome rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty [ owl:inverseOf gufo:broughtAbout ];
+  owl:someValuesFrom cover:ImpactEvent
+].
+cover:ImpactEvent rdfs:subClassOf [
+  rdf:type owl:Restriction;
+  owl:onProperty gufo:broughtAbout;
+  owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger;
+  owl:onClass cover:ImpactfulOutcome
+].
